@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { getBusiness } from "./businessActions";
 import { MobileWrapper } from "components/organisms/MobileWrapper";
+import { PersonEntity } from "types/store";
 
 const MySwal = withReactContent(Swal);
 
@@ -50,12 +51,12 @@ const getPersons = (businessId: string) => {
   };
 };
 
-export const setCurrentPersons = (person: Record<string, string>) => ({
+export const setCurrentPersons = (person: PersonEntity) => ({
   type: types.setCurrentPerson,
   payload: person,
 });
 
-export const startDeletePersonProcess = (person: Record<string, string>) => {
+export const startDeletePersonProcess = (person: PersonEntity) => {
   return async (dispatch: any, getState: () => any) => {
     try {
       const result = (): Promise<Record<string, boolean>> =>
@@ -82,6 +83,7 @@ export const startDeletePersonProcess = (person: Record<string, string>) => {
             hideClass: {
               popup: "animate__animated animate__fadeOutLeft animate__faster",
             },
+            customClass: { htmlContainer: "--responsive" },
           });
         });
 
@@ -109,12 +111,12 @@ const removePerson = (personId: string) => ({
   payload: personId,
 });
 
-export const startEditPersonProcess = (person: Record<string, string>) => {
+export const startEditPersonProcess = (person: PersonEntity) => {
   return async (dispatch: any, getState: () => any) => {
     try {
       const currentBusinessId = getState().businesses.currentBusiness.id;
       /* dispatch(updateLoadingBusinesses(true)); */
-      const editProcess = async (): Promise<Record<string, string>> =>
+      const editProcess = async (): Promise<PersonEntity> =>
         await new Promise((resolve, reject) => {
           MySwal.fire({
             html: (
@@ -160,10 +162,11 @@ export const startEditPersonProcess = (person: Record<string, string>) => {
       MySwal.close();
       Swal.fire({
         icon: "success",
-        title: "Business Updated",
+        title: "Person Updated",
         showConfirmButton: false,
         target: ".App",
         timer: 1500,
+        customClass: { popup: "--responsiveResponse" },
       });
     } catch (error) {
       Swal.fire({
@@ -173,12 +176,13 @@ export const startEditPersonProcess = (person: Record<string, string>) => {
         showConfirmButton: true,
         target: ".App",
         timer: 1500,
+        customClass: { popup: "--responsiveResponse" },
       });
     }
   };
 };
 
-const updatePerson = (person: Record<string, string>) => ({
+const updatePerson = (person: PersonEntity) => ({
   type: types.updatePerson,
   payload: person,
 });
@@ -230,10 +234,11 @@ export const startCreatePersonProcess = () => {
       MySwal.close();
       Swal.fire({
         icon: "success",
-        title: "Person Updated",
+        title: "Person Created",
         showConfirmButton: false,
         timer: 1500,
         target: ".App",
+        customClass: { popup: "--responsiveResponse" },
       });
     } catch (error) {
       Swal.fire({
@@ -243,6 +248,7 @@ export const startCreatePersonProcess = () => {
         showConfirmButton: true,
         timer: 1500,
         target: ".App",
+        customClass: { popup: "--responsiveResponse" },
       });
     }
   };

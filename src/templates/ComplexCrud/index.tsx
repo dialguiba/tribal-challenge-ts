@@ -5,16 +5,16 @@ import { useMobile } from "hooks/useMobile";
 import { ReactSVG } from "react-svg";
 import { Crud } from "templates/Crud";
 import "./complexCrud.scoped.scss";
-import { Persons } from "../../types/store";
+import { BusinessEntity, PersonEntity } from "../../types/store";
 
 interface Props {
   title: string;
-  persons: Persons;
+  persons: PersonEntity[];
   handleUpdateView: (view: number) => void;
   currentView: number;
-  handleDelete: () => void;
-  handleEditBusiness: () => void;
-  handleEditPerson: () => void;
+  handleDelete: (person: PersonEntity) => (dispatch: any, getState: () => any) => Promise<void>;
+  handleEditBusiness: (business?: BusinessEntity) => (dispatch: any, getState: () => any) => Promise<void>;
+  handleEditPerson: (person: PersonEntity) => (dispatch: any, getState: () => any) => Promise<void>;
   handleCreate: () => void;
   isLoading: boolean;
   handleRefresh: () => void;
@@ -47,7 +47,7 @@ export const ComplexCrud = ({
           actions={
             <>
               {!isMobile && <ReactSVG src="/icons/refresh.svg" style={{ cursor: "pointer" }} onClick={handleRefresh} />}
-              {isMobile && <ReactSVG src="/icons/pen2.svg" onClick={handleEditBusiness} />}
+              {isMobile && <ReactSVG src="/icons/pen2.svg" onClick={() => handleEditBusiness()} />}
               {!isMobile && (
                 <ReactSVG src={`${currentView === 0 ? "/icons/squares.svg" : "/icons/list.svg"}`} onClick={changeView} style={{ cursor: "pointer" }} />
               )}

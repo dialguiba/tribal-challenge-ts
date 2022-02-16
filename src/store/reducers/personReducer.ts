@@ -1,5 +1,5 @@
 import { types } from "store/types";
-import { Action, Person } from "types/store";
+import { Action, PersonEntity } from "types/store";
 
 const initialState = {
   isLoading: false,
@@ -24,13 +24,13 @@ export const personReducer = (state = initialState, action: Action) => {
     case types.removePerson:
       return {
         ...state,
-        currentPersons: state.currentPersons.filter((person: Person) => person.id !== action.payload),
+        currentPersons: state.currentPersons.filter((person: PersonEntity) => person.id !== action.payload),
       };
 
     case types.updatePerson:
       return {
         ...state,
-        currentPersons: [...state.currentPersons.filter((person: Person) => person.id !== action.payload.id), action.payload],
+        currentPersons: [...state.currentPersons.filter((person: PersonEntity) => person.id !== action.payload.id), action.payload],
       };
 
     case types.addPerson:

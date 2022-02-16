@@ -5,6 +5,7 @@ import { types } from "store/types";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { MobileWrapper } from "components/organisms/MobileWrapper";
+import { BusinessEntity } from "types/store";
 
 const MySwal = withReactContent(Swal);
 
@@ -102,6 +103,7 @@ export const createbusiness = () => {
         showConfirmButton: false,
         timer: 1500,
         target: ".App",
+        customClass: { popup: "--responsiveResponse" },
       });
     } catch (error) {
       Swal.fire({
@@ -111,18 +113,20 @@ export const createbusiness = () => {
         showConfirmButton: true,
         timer: 1500,
         target: ".App",
+        customClass: { popup: "--responsiveResponse" },
       });
     }
   };
 };
 
-export const startEditBusinessProcess = (business: Record<string, string>) => {
+export const startEditBusinessProcess = (business: BusinessEntity = {} as BusinessEntity) => {
   return async (dispatch: any, getState: () => any) => {
     try {
       const currentBusiness = getState().businesses.currentBusiness;
       const initialValues = currentBusiness || business;
+      const businessId = currentBusiness.id || business.id;
 
-      const editProcess = async (): Promise<Record<string, string>> =>
+      const editProcess = async (): Promise<BusinessEntity> =>
         await new Promise((resolve, reject) => {
           MySwal.fire({
             html: (
@@ -139,7 +143,7 @@ export const startEditBusinessProcess = (business: Record<string, string>) => {
                   submitButtonText="Update"
                   id={business.id}
                   currentName={business.name}
-                  onSubmit={(values: Record<string, string>) => {
+                  onSubmit={(values: BusinessEntity) => {
                     resolve(values);
                   }}
                   onCancel={() => {
@@ -159,7 +163,7 @@ export const startEditBusinessProcess = (business: Record<string, string>) => {
           });
         });
       const updatedValues = await editProcess();
-      await apiInstance(`/business/${business.id}`, {
+      await apiInstance(`/business/${businessId}`, {
         method: "PUT",
         data: JSON.stringify(updatedValues),
         headers: {
@@ -168,6 +172,10 @@ export const startEditBusinessProcess = (business: Record<string, string>) => {
       });
       /* dispatch(getBusinesses()); */
       dispatch(updateBusiness(updatedValues));
+      if (currentBusiness.id) {
+        dispatch(setCurrentBusiness(updatedValues));
+      }
+
       MySwal.close();
       Swal.fire({
         icon: "success",
@@ -175,28 +183,33 @@ export const startEditBusinessProcess = (business: Record<string, string>) => {
         showConfirmButton: false,
         timer: 1500,
         target: ".App",
+        customClass: { popup: "--responsiveResponse" },
       });
     } catch (error) {
       Swal.fire({
         icon: "error",
         title: "Error",
         text: "error",
-        showConfirmButton: true,
+        showConfirmButton: false,
         timer: 1500,
         target: ".App",
+        customClass: { popup: "--responsiveResponse" },
       });
     }
   };
 };
 
-const updateBusiness = (business: Record<string, string>) => ({
+const updateBusiness = (business: BusinessEntity) => ({
   type: types.updateBusiness,
   payload: business,
 });
 
-export const startDeleteBusinessProcess = (business: Record<string, string>) => {
-  return async (dispatch: any, getState: () => void) => {
+export const startDeleteBusinessProcess = (business: BusinessEntity) => {
+  return async (dispatch: any, getState: () => any) => {
     try {
+      const currentBusinessId = getState().businesses?.currentBusiness?.id;
+
+      const businessId = currentBusinessId || business.id;
       const processDelete = async (): Promise<Record<string, boolean>> =>
         await new Promise((resolve, reject) => {
           MySwal.fire({
@@ -221,18 +234,22 @@ export const startDeleteBusinessProcess = (business: Record<string, string>) => 
             hideClass: {
               popup: "animate__animated animate__fadeOutLeft animate__faster",
             },
+            customClass: { htmlContainer: "--responsive" },
           });
         });
       const result = await processDelete();
       if (result.isConfirmed) {
-        await apiInstance(`/business/${business.id}`, {
+        await apiInstance(`/business/${businessId}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
           },
         });
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        dispatch(removeBusiness(business.id));
+        dispatch(removeBusiness(businessId));
+        if (currentBusinessId) {
+          dispatch(setCurrentBusiness({} as BusinessEntity));
+        }
       }
     } catch (e) {
       console.log(e);
@@ -258,7 +275,7 @@ export const updateCurrentBusiness = (businessId: string) => {
   };
 };
 
-export const setCurrentBusiness = (business: Record<string, string>) => ({
+export const setCurrentBusiness = (business: BusinessEntity | null) => ({
   type: types.setCurrentBusiness,
   payload: business,
 });

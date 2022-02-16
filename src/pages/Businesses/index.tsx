@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createbusiness, getBusinesses, startEditBusinessProcess, startDeleteBusinessProcess } from "store/actions/businessActions";
 
 import { SimpleCrud } from "templates/SimpleCrud";
+import { BusinessEntity, State } from "types/store";
 import "./business.scoped.scss";
 
 export const Businesses = () => {
@@ -13,16 +14,16 @@ export const Businesses = () => {
     dispatch(getBusinesses());
   }, [dispatch]);
 
-  const { data } = useSelector((state) => state.businesses);
-  const isBusinessesLoading = useSelector((state) => state?.businesses?.isLoading);
+  const { data } = useSelector((state: State) => state.businesses);
+  const isBusinessesLoading = useSelector((state: State) => state?.businesses?.isLoading);
 
-  const handleEdit = (business, e) => {
+  const handleEdit = (business: BusinessEntity, e: Event) => {
     e.preventDefault();
-    dispatch(startEditBusinessProcess(business));
+    return dispatch(startEditBusinessProcess(business));
   };
-  const handleDelete = (business, e) => {
+  const handleDelete = (business: BusinessEntity, e: Event) => {
     e.preventDefault();
-    dispatch(startDeleteBusinessProcess(business));
+    return dispatch(startDeleteBusinessProcess(business));
   };
   const handleCreate = () => dispatch(createbusiness());
   const handleRefresh = () => dispatch(getBusinesses());
@@ -32,7 +33,7 @@ export const Businesses = () => {
       isLoading={isBusinessesLoading}
       handleCreate={handleCreate}
       handleDelete={handleDelete}
-      handleEdit={handleEdit}
+      handleEditBusiness={handleEdit}
       data={data}
       handleRefresh={handleRefresh}
     />

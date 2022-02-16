@@ -2,12 +2,13 @@ import { Button } from "components/atoms/Button";
 import { Input } from "components/atoms/Input";
 import { useFormik } from "formik";
 import { useMobile } from "hooks/useMobile";
+import { PersonEntity } from "types/store";
 import * as Yup from "yup";
 import "./person-form.scoped.scss";
 
 interface Props {
-  initialValues?: Record<string, string>;
-  onSubmit: (values: Record<string, string>) => void;
+  initialValues?: PersonEntity;
+  onSubmit: (values: PersonEntity) => void;
   title: string;
   onCancel: () => void;
   submitButtonText: string;
@@ -16,6 +17,7 @@ interface Props {
 }
 
 const defaultInitialValues = {
+  id: "",
   name: "",
   role: "",
   email: "",
@@ -41,7 +43,7 @@ export const PersonForm = ({
       role: Yup.string(),
       email: Yup.string().required("This field is required").email("Invalid email address"),
       phone: Yup.string(),
-      join_date: Yup.string(),
+      join_date: Yup.date().when((joinDate, schema) => joinDate && schema.max(new Date(), "Date must be in the past")),
     }),
     onSubmit: (values) => onSubmit(values),
   });

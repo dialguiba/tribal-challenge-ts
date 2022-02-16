@@ -5,21 +5,23 @@ import * as Yup from "yup";
 import { Button } from "@components/atoms/Button";
 import { Input } from "@components/atoms/Input";
 import { useMobile } from "@hooks/useMobile";
+import { BusinessEntity } from "types/store";
 
 interface Props {
-  initialValues?: Record<string, string>;
+  initialValues?: BusinessEntity;
   title?: string;
   onCancel?: () => void;
   submitButtonText?: string;
   handleUpdate?: () => void;
   id?: string;
   currentName?: string;
-  onSubmit: (values: Record<string, string>) => void;
+  onSubmit: (values: BusinessEntity) => void;
   canDeleteInMobile?: boolean;
   onDelete?: () => void;
 }
 
 const defaultInitialValues = {
+  id: "",
   name: "",
 };
 

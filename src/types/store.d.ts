@@ -3,31 +3,38 @@ export interface Action {
   payload: any;
 }
 
-export interface Businesses {
+export interface BusinessesEntity {
   data: Business[];
   isLoading: boolean;
   withError: boolean;
+  currentBusiness: Business;
 }
 
-export interface Business {
+export interface BusinessEntity {
   id: string;
   name: string;
 }
 
-export interface Ui {
+export interface UiEntity {
   currentView: number;
 }
-export interface Persons {
+export interface PersonsEntity {
   isLoading: boolean;
   withError: boolean;
-  data: Person[];
+  currentPersons: Person[];
 }
 
-export interface Person {
+export interface PersonEntity {
   id: string;
   name: string;
   role: string;
   email: string;
   phone: string;
   join_date: string;
+}
+
+export interface State {
+  businesses: Businesses;
+  persons: Persons;
+  ui: Ui;
 }

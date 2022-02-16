@@ -15,7 +15,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "declaration": true,
+    "declarationDir": "./types"
   },
   "include": ["src"],
   "exclude": ["node_modules", "cracon.config.js"],

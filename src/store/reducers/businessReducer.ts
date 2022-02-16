@@ -1,5 +1,5 @@
 import { types } from "store/types";
-import { Action, Business } from "types/store";
+import { Action, BusinessEntity } from "types/store";
 
 const initialState = {
   data: [],
@@ -19,7 +19,7 @@ export const businessReducer = (state = initialState, action: Action) => {
     case types.updateBusiness:
       return {
         ...state,
-        data: [...state.data.filter((business: Business) => business.id !== action.payload.id), action.payload],
+        data: [...state.data.filter((business: BusinessEntity) => business.id !== action.payload.id), action.payload],
       };
 
     case types.updateLoadingBusinesses:
@@ -37,7 +37,7 @@ export const businessReducer = (state = initialState, action: Action) => {
     case types.removeBusiness:
       return {
         ...state,
-        data: state.data.filter((business: Business) => business.id !== action.payload),
+        data: state.data.filter((business: BusinessEntity) => business.id !== action.payload),
       };
 
     default:

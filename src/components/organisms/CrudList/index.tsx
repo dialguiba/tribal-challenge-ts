@@ -11,7 +11,7 @@ interface Props {
   handleCreate?: () => void;
   handleEdit: (item: any, e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => void;
   handleDelete: (item: any, e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => void;
-  currentView: number;
+  currentView?: number;
   withLink?: boolean;
   canEdit?: boolean;
   canDelete?: boolean;

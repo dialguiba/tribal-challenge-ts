@@ -6,8 +6,18 @@ import { Crud } from "templates/Crud";
 import { Button } from "components/atoms/Button";
 import { useMobile } from "hooks/useMobile";
 import { ReactSVG } from "react-svg";
+import { BusinessEntity } from "types/store";
 
-export const SimpleCrud = ({ handleCreate, handleDelete, handleEdit, data, isLoading, handleRefresh }) => {
+interface Props {
+  handleCreate: () => void;
+  handleDelete: any;
+  handleEditBusiness: any;
+  data: BusinessEntity;
+  isLoading: boolean;
+  handleRefresh: () => void;
+}
+
+export const SimpleCrud = ({ handleCreate, handleDelete, handleEditBusiness, data, isLoading, handleRefresh }: Props) => {
   const [isMobile] = useMobile();
   return (
     <div className={isMobile ? "t-simpleCrud --mobile" : "t-simpleCrud"}>
@@ -15,8 +25,6 @@ export const SimpleCrud = ({ handleCreate, handleDelete, handleEdit, data, isLoa
         <HeaderCrud
           responsive
           title="Business"
-          canCreate={!isMobile}
-          handleCreate={handleCreate}
           actions={
             <>
               {!isMobile && <ReactSVG src="/icons/refresh.svg" style={{ cursor: "pointer" }} onClick={handleRefresh} />}
@@ -25,7 +33,7 @@ export const SimpleCrud = ({ handleCreate, handleDelete, handleEdit, data, isLoa
           }
         />
 
-        <CrudList data={data} handleEdit={handleEdit} handleDelete={handleDelete} withLink isLoading={isLoading} withActions={!isMobile} />
+        <CrudList data={data} handleEdit={handleEditBusiness} handleDelete={handleDelete} withLink isLoading={isLoading} withActions={!isMobile} />
 
         {isMobile && (
           <div className="t-simpleCrud__button">
