@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
+
+@import url("https://fonts.googleapis.com/css?family=Public+Sans:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
+
+@import "@styles/base/_variables.scss";
+
+.App {
+  /* height: 100vh; */
+  /* max-height: 100vh; */
+  /* overflow: hidden; */
+  font-family: $primary-font;
+}
+
+body {
+  a {
+    text-decoration: none;
+  }
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .swal2-popup {
+    border-radius: 29px;
+  }
+  @media #{$media-tablet} {
+    .swal2-container {
+      overflow-y: auto;
+      margin: 0;
+      padding: 0 !important;
+      height: 100%;
+      width: 100%;
+    }
+    .swal2-popup {
+      padding: 0 !important;
+      height: 100vh;
+      border-radius: 0;
+      width: 100%;
+    }
+  }
+}

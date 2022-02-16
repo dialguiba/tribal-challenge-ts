@@ -1,0 +1,22 @@
+.t-crud {
+  box-sizing: border-box;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 12rem auto;
+  padding: 1.5rem;
+
+  &.--mobile {
+    /* grid-template-rows: 1fr; */
+    padding: 0;
+    display: block;
+    /* display: block; */
+    /* padding: 7rem 2rem 6rem 2rem; */
+    /* padding: 12rem 2rem 6rem 2rem; */
+    overflow: hidden;
+  }
+
+  /* border: solid red; */
+
+  /* max-height: 100%; */
+  /* padding: 8rem 2rem 5rem 2rem; */
+}

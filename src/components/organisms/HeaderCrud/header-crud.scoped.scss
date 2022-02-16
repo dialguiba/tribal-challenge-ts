@@ -1,0 +1,53 @@
+.o-headerCrud {
+  align-self: flex-end;
+
+  &.--mobile {
+    /* border: solid red; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 3.8rem 2rem 0 2rem;
+    background: white;
+  }
+  /* padding: 1.5rem 0 0 0; */
+  &__principal {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 40px;
+
+    &.--mobile {
+      margin: 0;
+      /* padding: 0; */
+      /* border: solid red; */
+      /* position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      
+      padding: 1.5rem 2rem;
+      background: white; */
+    }
+  }
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__button {
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+}

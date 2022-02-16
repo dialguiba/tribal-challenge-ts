@@ -1,0 +1,12 @@
+.m-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+
+  &.--vertical {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}

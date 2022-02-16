@@ -1,0 +1,36 @@
+.a-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  &__label {
+    width: 100%;
+    font-family: "public sans", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0.5rem 0;
+    cursor: default;
+    text-align: start;
+  }
+  &__input {
+    font-family: "public sans", sans-serif;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background: #f8f8f8;
+    padding: 1rem;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  &__error {
+    color: red;
+    font-size: 12px;
+    line-height: 20px;
+  }
+}

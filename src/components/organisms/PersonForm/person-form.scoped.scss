@@ -1,0 +1,26 @@
+@import "@styles/base/_variables.scss";
+
+.o-personForm {
+  background: white;
+  padding: 0.5rem;
+  border-radius: 100px;
+
+  &__title {
+    font-family: "Work Sans", sans-serif;
+    color: #000000;
+    font-size: 18px;
+    line-height: 21.11px;
+    font-weight: 700;
+  }
+
+  &__buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+
+    @media #{$media-tablet} {
+      flex-direction: column;
+    }
+  }
+}

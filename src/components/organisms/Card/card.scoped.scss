@@ -1,0 +1,17 @@
+.o-card {
+  border: solid 1px #c8c8cc;
+  border-radius: 12px;
+  padding: 1rem;
+
+  &__header {
+    border-bottom: solid 1px #efeeee;
+    cursor: default;
+  }
+  &__body {
+    padding: 1rem 0.5rem 0.5rem 0;
+    cursor: default;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

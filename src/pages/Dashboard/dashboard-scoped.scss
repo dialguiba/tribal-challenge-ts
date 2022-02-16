@@ -1,0 +1,39 @@
+.dashboard {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 100vh;
+  grid-template-rows: 100vh;
+  -ms-grid-columns: 250px 1fr;
+  grid-template-columns: 250px 1fr;
+
+  &.--mobile {
+    height: 100%;
+    display: block;
+  }
+
+  overflow: hidden;
+}
+
+.sidebar {
+  padding: 1.5rem;
+  border: solid white;
+
+  /* border-right: 1px solid #e5e5e5;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+  position: fixed;
+  width: 300px;
+  z-index: 1; */
+}
+
+.view {
+  /* background-color: blue; */
+  /* height: 100%;
+  width: 100%; */
+  /* flex: 1;
+  overflow-y: auto;
+  padding: 0; */
+}

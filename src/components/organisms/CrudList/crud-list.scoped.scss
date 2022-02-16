@@ -1,0 +1,57 @@
+@import "@styles/base/_variables.scss";
+
+.o-crudList {
+  padding: 0;
+  margin: 0;
+
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 12px; /* width of the entire scrollbar */
+  }
+  &::-webkit-scrollbar-track {
+    background: #f8f8f8; /* color of the tracking area */
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #000000; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 3px solid #f8f8f8; /* creates padding around scroll thumb */
+  }
+
+  &.--gallery {
+    display: -ms-grid;
+    display: grid;
+    /* -ms-grid-columns: repeat(auto-fit, minmax(304px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(304px, 1fr)); */
+
+    -ms-grid-rows: repeat(auto-fit, minmax(185px, 190px));
+    grid-template-rows: repeat(auto-fit, minmax(185px, 190px));
+    grid-gap: 1rem;
+  }
+
+  @media #{$media-desktop-lg} {
+    -ms-grid-columns: repeat(4, 22%);
+    grid-template-columns: repeat(4, 22%);
+  }
+  @media #{$media-desktop-md} {
+    -ms-grid-columns: repeat(3, 30%);
+    grid-template-columns: repeat(3, 30%);
+  }
+  @media #{$media-tablet} {
+    -ms-grid-columns: repeat(2, 47%);
+    grid-template-columns: repeat(2, 47%);
+  }
+  @media #{$media-mobile} {
+    -ms-grid-columns: repeat(2, 47%);
+    grid-template-columns: repeat(2, 47%);
+  }
+  @media #{$media-mobile-sm} {
+    -ms-grid-columns: repeat(1, 97%);
+    grid-template-columns: repeat(1, 97%);
+  }
+
+  &__separator {
+    margin: 0;
+    border: 1px solid #efeeee;
+  }
+}

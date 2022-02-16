@@ -1,0 +1,21 @@
+.o-sidebar {
+  position: relative;
+  padding: 65px 35px 20px 35px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 10fr 1fr;
+  grid-template-rows: 1fr 10fr 1fr;
+
+  &__header {
+    align-self: flex-start;
+  }
+
+  &__menu {
+    align-self: flex-start;
+  }
+
+  &__footer {
+    align-self: flex-end;
+    width: 100%;
+  }
+}

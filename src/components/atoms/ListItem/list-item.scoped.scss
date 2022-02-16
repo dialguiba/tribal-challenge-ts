@@ -1,0 +1,27 @@
+.a-listItem {
+  display: flex;
+  /* border: solid; */
+  align-items: center;
+  padding: 0.3rem 0;
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+
+  align-items: center;
+
+  &__icon {
+    fill: var(--iconFillColor);
+    stroke: var(--iconStrokeColor);
+    margin-right: 1rem;
+  }
+  &__text {
+    color: var(--textColor);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    &.--bold {
+      font-weight: 700;
+    }
+  }
+}
