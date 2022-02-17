@@ -3,7 +3,7 @@ import "./dashboard-scoped.scss";
 import { DashboardRouter } from "../../routes/DashboardRouter";
 import { useEffect, useState } from "react";
 import { Sidebar } from "components/organisms/Sidebar";
-import { BrowserRouter, HashRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { useMobile } from "hooks/useMobile";
 import { useTranslation } from "react-i18next";
 import { staticData } from "./data";
