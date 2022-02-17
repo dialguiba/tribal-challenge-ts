@@ -18,6 +18,7 @@ interface Props {
   handleCreate: () => void;
   isLoading: boolean;
   handleRefresh: () => void;
+  staticData: any;
 }
 
 export const ComplexCrud = ({
@@ -31,6 +32,7 @@ export const ComplexCrud = ({
   handleCreate,
   isLoading,
   handleRefresh,
+  staticData,
 }: Props) => {
   const [isMobile] = useMobile();
 
@@ -51,13 +53,13 @@ export const ComplexCrud = ({
               {!isMobile && (
                 <ReactSVG src={`${currentView === 0 ? "/icons/squares.svg" : "/icons/list.svg"}`} onClick={changeView} style={{ cursor: "pointer" }} />
               )}
-              {!isMobile && <Button onClick={() => handleCreate()}>Create person</Button>}
+              {!isMobile && <Button onClick={() => handleCreate()}>{staticData.persons.actions.create}</Button>}
             </>
           }
         >
           {isMobile && (
             <HeaderCrud
-              title="Persons"
+              title={staticData.persons.title}
               actions={
                 <>
                   <ReactSVG src={`${currentView === 0 ? "/icons/squares.svg" : "/icons/list.svg"}`} onClick={changeView} />
@@ -77,7 +79,7 @@ export const ComplexCrud = ({
         />
         {isMobile && (
           <div className="t-complexCrud__button">
-            <Button onClick={handleCreate}>Add Person</Button>
+            <Button onClick={handleCreate}>{staticData.persons.actions.create}</Button>
           </div>
         )}
       </Crud>

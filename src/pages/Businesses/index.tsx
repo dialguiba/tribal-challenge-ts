@@ -1,5 +1,3 @@
-import React from "react";
-
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createbusiness, getBusinesses, startEditBusinessProcess, startDeleteBusinessProcess } from "store/actions/businessActions";
@@ -7,14 +5,17 @@ import { createbusiness, getBusinesses, startEditBusinessProcess, startDeleteBus
 import { SimpleCrud } from "templates/SimpleCrud";
 import { BusinessEntity, State } from "types/store";
 import "./business.scoped.scss";
+import { staticData } from "./data";
+import { useTranslation } from "react-i18next";
 
-export const Businesses = () => {
+const Businesses = () => {
+  const { t } = useTranslation(["translation"]);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBusinesses());
   }, [dispatch]);
 
-  const { data } = useSelector((state: State) => state.businesses);
+  const businesses = useSelector((state: State) => state.businesses.data);
   const isBusinessesLoading = useSelector((state: State) => state?.businesses?.isLoading);
 
   const handleEdit = (business: BusinessEntity, e: Event) => {
@@ -34,8 +35,11 @@ export const Businesses = () => {
       handleCreate={handleCreate}
       handleDelete={handleDelete}
       handleEditBusiness={handleEdit}
-      data={data}
+      businesses={businesses}
       handleRefresh={handleRefresh}
+      staticData={staticData(t)}
     />
   );
 };
+
+export default Businesses;

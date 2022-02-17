@@ -7,6 +7,8 @@ import withReactContent from "sweetalert2-react-content";
 import { getBusiness } from "./businessActions";
 import { MobileWrapper } from "components/organisms/MobileWrapper";
 import { PersonEntity } from "types/store";
+import { staticData } from "./data";
+import { t } from "i18next";
 
 const MySwal = withReactContent(Swal);
 
@@ -64,6 +66,8 @@ export const startDeletePersonProcess = (person: PersonEntity) => {
           MySwal.fire({
             html: (
               <DeleteModalContent
+                cancelButtonText={staticData(t).general.cancel}
+                confirmText={staticData(t).general.deleteConfirm}
                 elementName={person.name}
                 onConfirmClick={() => {
                   resolve({
@@ -97,7 +101,7 @@ export const startDeletePersonProcess = (person: PersonEntity) => {
             "Content-Type": "application/json",
           },
         });
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        Swal.fire(staticData(t).general.deleted, staticData(t).persons.deleted, "success");
         dispatch(removePerson(person.id));
       }
     } catch (e) {
@@ -115,7 +119,6 @@ export const startEditPersonProcess = (person: PersonEntity) => {
   return async (dispatch: any, getState: () => any) => {
     try {
       const currentBusinessId = getState().businesses.currentBusiness.id;
-      /* dispatch(updateLoadingBusinesses(true)); */
       const editProcess = async (): Promise<PersonEntity> =>
         await new Promise((resolve, reject) => {
           MySwal.fire({
@@ -124,13 +127,16 @@ export const startEditPersonProcess = (person: PersonEntity) => {
                 onButtonClick={() => {
                   MySwal.close();
                 }}
+                goBackText={staticData(t).business.back}
               >
                 <PersonForm
+                  cancelButtonText={staticData(t).general.cancel}
+                  deleteButtonText={staticData(t).general.delete}
                   onDelete={() => dispatch(startDeletePersonProcess(person))}
                   canDeleteInMobile
                   initialValues={person}
-                  title="Edit Person"
-                  submitButtonText="Save"
+                  title={staticData(t).persons.edit}
+                  submitButtonText={staticData(t).general.save}
                   onSubmit={(values) => {
                     resolve(values);
                   }}
@@ -162,7 +168,7 @@ export const startEditPersonProcess = (person: PersonEntity) => {
       MySwal.close();
       Swal.fire({
         icon: "success",
-        title: "Person Updated",
+        title: staticData(t).persons.updated,
         showConfirmButton: false,
         target: ".App",
         timer: 1500,
@@ -191,18 +197,19 @@ export const startCreatePersonProcess = () => {
   return async (dispatch: any, getState: () => any) => {
     try {
       const currentBusinessId = getState().businesses.currentBusiness.id;
-      /* dispatch(updateLoadingBusinesses(true)); */
       const values = await new Promise((resolve, reject) => {
         MySwal.fire({
           html: (
             <MobileWrapper
+              goBackText={staticData(t).business.back}
               onButtonClick={() => {
                 MySwal.close();
               }}
             >
               <PersonForm
-                title="Create Person"
-                submitButtonText="Create"
+                title={staticData(t).persons.create}
+                submitButtonText={staticData(t).persons.create}
+                cancelButtonText={staticData(t).business.cancel}
                 onSubmit={(values) => {
                   resolve(values);
                 }}
@@ -234,8 +241,7 @@ export const startCreatePersonProcess = () => {
       MySwal.close();
       Swal.fire({
         icon: "success",
-        title: "Person Created",
-        showConfirmButton: false,
+        title: staticData(t).persons.created,
         timer: 1500,
         target: ".App",
         customClass: { popup: "--responsiveResponse" },

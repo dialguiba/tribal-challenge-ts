@@ -1,5 +1,5 @@
 import { MobileWrapper } from "components/organisms/MobileWrapper";
-import React, { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -16,11 +16,14 @@ import { updateCurrentView } from "store/actions/uiActions";
 import { ComplexCrud } from "templates/ComplexCrud";
 import { useNavigate } from "react-router-dom";
 import { BusinessEntity, PersonEntity, State } from "types/store";
+import { staticData } from "./data";
+import { useTranslation } from "react-i18next";
 
-export const Business = () => {
+const Business = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { t } = useTranslation(["translation"]);
   useEffect(() => {
     if (id) {
       dispatch(updateCurrentBusiness(id));
@@ -47,13 +50,11 @@ export const Business = () => {
   }, [currentBusiness, navigate]);
 
   const name = useSelector((state: State) => state?.businesses?.currentBusiness?.name);
-
   const persons = useSelector((state: State) => state?.persons?.currentPersons);
   const currentView = useSelector((state: State) => state?.ui?.currentView);
   const isBusinessLoading = useSelector((state: State) => state?.businesses?.isLoading);
   const isPersonsLoading = useSelector((state: State) => state?.persons?.isLoading);
   const currentBusinesId = useSelector((state: State) => state?.businesses?.currentBusiness?.id);
-
   const handleUpdateView = (view: number) => dispatch(updateCurrentView(view));
   const handleCreate = () => dispatch(startCreatePersonProcess());
   const handleDelete = (person: PersonEntity) => dispatch(startDeletePersonProcess(person));
@@ -62,7 +63,7 @@ export const Business = () => {
   const handleRefresh = () => dispatch(updateCurrentPersons(currentBusinesId));
 
   return (
-    <MobileWrapper onButtonClick={() => navigate("/overview")}>
+    <MobileWrapper onButtonClick={() => navigate("/overview")} goBackText={staticData(t).business.actions.back}>
       <ComplexCrud
         title={name}
         persons={persons}
@@ -74,7 +75,10 @@ export const Business = () => {
         isLoading={isBusinessLoading || isPersonsLoading}
         handleEditPerson={handleEditPerson}
         handleRefresh={handleRefresh}
+        staticData={staticData(t)}
       />
     </MobileWrapper>
   );
 };
+
+export default Business;

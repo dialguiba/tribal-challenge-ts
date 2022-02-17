@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./header-crud.scoped.scss";
 
 import { useMobile } from "@hooks/useMobile";

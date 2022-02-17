@@ -6,9 +6,10 @@ import "./mobile-wrapper.scoped.scss";
 interface Props {
   children: any;
   onButtonClick: () => void;
+  goBackText?: string;
 }
 
-export const MobileWrapper = ({ children, onButtonClick }: Props) => {
+export const MobileWrapper = ({ children, onButtonClick, goBackText = "Back" }: Props) => {
   const [isMobile] = useMobile();
   return (
     <>
@@ -16,7 +17,7 @@ export const MobileWrapper = ({ children, onButtonClick }: Props) => {
         <div className="o-mobileWrapper">
           <Button backgroundColor="transparent" textColor="#000000" width="fit-content" padding="0" onClick={onButtonClick}>
             <ReactSVG src="/icons/left-arrow.svg" />
-            Back
+            {goBackText}
           </Button>
         </div>
       )}

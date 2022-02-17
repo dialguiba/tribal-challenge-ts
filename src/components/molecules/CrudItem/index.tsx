@@ -51,26 +51,26 @@ export const CrudItem = ({
     <>
       <ConditionalWrapper condition={withLink} wrapper={(children) => <Link to={`/overview/${id}`}>{children}</Link>}>
         <li className={liClasses()}>
-          <div>
-            <div className="m-crudItem__text">{name}</div>
+          <div className="m-crudItem__textsContainer">
+            <div className="m-crudItem__textsContainer__text">{name}</div>
             {mutedText && (
               <div
                 className="
-            m-crudItem__text --muted"
+            m-crudItem__textsContainer__text --muted"
               >
                 {mutedText}
               </div>
             )}
           </div>
           {withActions && (
-            <div>
+            <div className="m-crudItem__buttonsContainer">
               {canEdit && (
-                <button onClick={(e) => handleEdit(item, e)} className="m-crudItem__icon">
+                <button onClick={(e) => handleEdit(item, e)} className="m-crudItem__buttonsContainer__icon">
                   <ReactSVG src={`/icons/${editIconName}.svg`} />
                 </button>
               )}
               {canDelete && (
-                <button onClick={(e) => handleDelete(item, e)} className="m-crudItem__icon">
+                <button onClick={(e) => handleDelete(item, e)} className="m-crudItem__buttonsContainer__icon">
                   <ReactSVG src={`/icons/trash.svg`} />
                 </button>
               )}

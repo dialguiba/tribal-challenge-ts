@@ -14,7 +14,8 @@
       "@reducers/*": ["./store/reducers/*"],
       "@actions/*": ["./store/actions/*"],
       "@styles/*": ["./styles/*"],
-      "@hooks/*": ["./hooks/*"]
+      "@hooks/*": ["./hooks/*"],
+      "@i18n/*": ["./i18n/*"]
     }
   }
 }

@@ -13,5 +13,14 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 20px;
+    overflow: hidden;
+    &__text1 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &__text2 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }

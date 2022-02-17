@@ -46,8 +46,8 @@ export const Card = ({
         />
       </section>
       <section className="o-card__body">
-        <div>{additional1}</div>
-        <div>{additional2}</div>
+        <div className="o-card__body__text1">{additional1}</div>
+        <div className="o-card__body__text2">{additional2}</div>
       </section>
     </article>
   );

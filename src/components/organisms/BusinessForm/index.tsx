@@ -6,6 +6,8 @@ import { Button } from "@components/atoms/Button";
 import { Input } from "@components/atoms/Input";
 import { useMobile } from "@hooks/useMobile";
 import { BusinessEntity } from "types/store";
+import { useTranslation } from "react-i18next";
+import { generalStaticData } from "../../../i18n/general";
 
 interface Props {
   initialValues?: BusinessEntity;
@@ -18,6 +20,8 @@ interface Props {
   onSubmit: (values: BusinessEntity) => void;
   canDeleteInMobile?: boolean;
   onDelete?: () => void;
+  cancelButtonText?: string;
+  deleteButtonText?: string;
 }
 
 const defaultInitialValues = {
@@ -33,9 +37,12 @@ export const BusinessForm = ({
   onSubmit,
   canDeleteInMobile = false,
   onDelete,
+  cancelButtonText = "Cancel",
+  deleteButtonText = "Delete",
 }: Props) => {
   const [isMobile] = useMobile();
   const [mobileClass, setMobileClass] = useState<string>();
+  const { t } = useTranslation(["translation"]);
 
   useEffect(() => {
     setMobileClass(isMobile ? "--mobile" : "");
@@ -44,7 +51,7 @@ export const BusinessForm = ({
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema: Yup.object({
-      name: Yup.string().required("This field is required"),
+      name: Yup.string().required(generalStaticData(t).fields.required),
     }),
     onSubmit: (values) => onSubmit(values),
   });
@@ -58,12 +65,12 @@ export const BusinessForm = ({
         <div className={`o-createForm__buttons ${mobileClass}`}>
           {!isMobile && (
             <Button type="button" onClick={onCancel} backgroundColor="#F8F8F8" textColor="Black">
-              Cancel
+              {cancelButtonText}
             </Button>
           )}
           {isMobile && canDeleteInMobile && (
             <Button type="button" onClick={onDelete} backgroundColor="#ffffff" textColor="#E32900" border="solid 1px #E32900">
-              Delete Business
+              {deleteButtonText}
             </Button>
           )}
           <Button type="submit">{submitButtonText}</Button>

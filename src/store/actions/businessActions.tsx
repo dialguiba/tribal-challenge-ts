@@ -7,6 +7,9 @@ import withReactContent from "sweetalert2-react-content";
 import { MobileWrapper } from "components/organisms/MobileWrapper";
 import { BusinessEntity } from "types/store";
 
+import { t } from "i18next";
+import { staticData } from "./data";
+
 const MySwal = withReactContent(Swal);
 
 // This loading is because is annoying the loading spinner when i am just adding a value.
@@ -62,19 +65,21 @@ export const createbusiness = () => {
         MySwal.fire({
           html: (
             <MobileWrapper
+              goBackText={staticData(t).business.back}
               onButtonClick={() => {
                 MySwal.close();
               }}
             >
               <BusinessForm
-                title="Create Business"
-                submitButtonText="Create"
+                title={staticData(t).business.createBusiness}
+                submitButtonText={staticData(t).business.create}
                 onSubmit={(values) => {
                   resolve(values);
                 }}
                 onCancel={() => {
                   MySwal.close();
                 }}
+                cancelButtonText={staticData(t).business.cancel}
               />
             </MobileWrapper>
           ),
@@ -99,7 +104,7 @@ export const createbusiness = () => {
       MySwal.close();
       Swal.fire({
         icon: "success",
-        title: "Business Created",
+        title: staticData(t).business.created,
         showConfirmButton: false,
         timer: 1500,
         target: ".App",
@@ -124,7 +129,7 @@ export const startEditBusinessProcess = (business: BusinessEntity = {} as Busine
     try {
       const currentBusiness = getState().businesses.currentBusiness;
       const initialValues = currentBusiness || business;
-      const businessId = currentBusiness.id || business.id;
+      const businessId = currentBusiness?.id || business.id;
 
       const editProcess = async (): Promise<BusinessEntity> =>
         await new Promise((resolve, reject) => {
@@ -134,13 +139,16 @@ export const startEditBusinessProcess = (business: BusinessEntity = {} as Busine
                 onButtonClick={() => {
                   MySwal.close();
                 }}
+                goBackText={staticData(t).business.back}
               >
                 <BusinessForm
+                  deleteButtonText={staticData(t).business.deleteBusiness}
                   onDelete={() => dispatch(startDeleteBusinessProcess(business))}
                   canDeleteInMobile
                   initialValues={initialValues}
-                  title="Update Business"
-                  submitButtonText="Update"
+                  title={staticData(t).business.edit}
+                  cancelButtonText={staticData(t).business.cancel}
+                  submitButtonText={staticData(t).business.update}
                   id={business.id}
                   currentName={business.name}
                   onSubmit={(values: BusinessEntity) => {
@@ -172,14 +180,14 @@ export const startEditBusinessProcess = (business: BusinessEntity = {} as Busine
       });
       /* dispatch(getBusinesses()); */
       dispatch(updateBusiness(updatedValues));
-      if (currentBusiness.id) {
+      if (currentBusiness?.id) {
         dispatch(setCurrentBusiness(updatedValues));
       }
 
       MySwal.close();
       Swal.fire({
         icon: "success",
-        title: "Business Updated",
+        title: staticData(t).business.updated,
         showConfirmButton: false,
         timer: 1500,
         target: ".App",
@@ -221,6 +229,9 @@ export const startDeleteBusinessProcess = (business: BusinessEntity) => {
                     isConfirmed: true,
                   });
                 }}
+                cancelButtonText={staticData(t).business.cancel}
+                submitButtonText={staticData(t).business.delete}
+                confirmText={staticData(t).business.deleteConfirm}
                 onCancel={() => {
                   MySwal.close();
                 }}
@@ -245,7 +256,7 @@ export const startDeleteBusinessProcess = (business: BusinessEntity) => {
             "Content-Type": "application/json",
           },
         });
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        Swal.fire(staticData(t).business.deleted, staticData(t).business.businessDeleted, "success");
         dispatch(removeBusiness(businessId));
         if (currentBusinessId) {
           dispatch(setCurrentBusiness({} as BusinessEntity));
@@ -269,8 +280,6 @@ export const updateCurrentBusiness = (businessId: string) => {
     if (!business) {
       business = await dispatch(getBusiness(businessId));
     }
-    /* const persons = await dispatch(getPersons(businessId)); */
-
     dispatch(setCurrentBusiness(business));
   };
 };
