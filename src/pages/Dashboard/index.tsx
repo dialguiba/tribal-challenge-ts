@@ -3,7 +3,7 @@ import "./dashboard-scoped.scss";
 import { DashboardRouter } from "../../routes/DashboardRouter";
 import { useEffect, useState } from "react";
 import { Sidebar } from "components/organisms/Sidebar";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import { useMobile } from "hooks/useMobile";
 import { useTranslation } from "react-i18next";
 import { staticData } from "./data";
@@ -23,13 +23,13 @@ export const Dashboard = () => {
   }, [isMobile]);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className={dashboardClasses}>
         {!isMobile && <Sidebar staticData={staticData(t)} />}
         <main style={{ height: "100%" }}>
           <DashboardRouter />
         </main>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
