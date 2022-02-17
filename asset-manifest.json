@@ -1,36 +1,20 @@
 {
   "files": {
-    "main.css": "/tribal-challenge-ts/static/css/main.c7aaffcb.css",
-    "main.js": "/tribal-challenge-ts/static/js/main.82cc32d8.js",
-    "static/css/434.39e763e7.chunk.css": "/tribal-challenge-ts/static/css/434.39e763e7.chunk.css",
-    "static/js/434.e74f424c.chunk.js": "/tribal-challenge-ts/static/js/434.e74f424c.chunk.js",
-    "static/css/524.c3f93e0b.chunk.css": "/tribal-challenge-ts/static/css/524.c3f93e0b.chunk.css",
-    "static/js/524.61ab4f00.chunk.js": "/tribal-challenge-ts/static/js/524.61ab4f00.chunk.js",
-    "static/css/986.9b84eb87.chunk.css": "/tribal-challenge-ts/static/css/986.9b84eb87.chunk.css",
-    "static/js/986.fc5158c7.chunk.js": "/tribal-challenge-ts/static/js/986.fc5158c7.chunk.js",
-    "static/js/987.4ff52861.chunk.js": "/tribal-challenge-ts/static/js/987.4ff52861.chunk.js",
-    "static/js/787.505ba2f2.chunk.js": "/tribal-challenge-ts/static/js/787.505ba2f2.chunk.js",
-    "static/js/720.10eb31e4.chunk.js": "/tribal-challenge-ts/static/js/720.10eb31e4.chunk.js",
-    "static/js/655.da9728a6.chunk.js": "/tribal-challenge-ts/static/js/655.da9728a6.chunk.js",
-    "static/media/logo.svg": "/tribal-challenge-ts/static/media/logo.7c8163e4db466e321954d09b1a49313a.svg",
-    "index.html": "/tribal-challenge-ts/index.html",
-    "static/media/getFetch.cjs": "/tribal-challenge-ts/static/media/getFetch.c780682470504fffbd04.cjs",
-    "static/media/arrow.svg": "/tribal-challenge-ts/static/media/arrow.deb4df55a4d66f94fc6ad62ac34e09f5.svg",
-    "main.c7aaffcb.css.map": "/tribal-challenge-ts/static/css/main.c7aaffcb.css.map",
-    "main.82cc32d8.js.map": "/tribal-challenge-ts/static/js/main.82cc32d8.js.map",
-    "434.39e763e7.chunk.css.map": "/tribal-challenge-ts/static/css/434.39e763e7.chunk.css.map",
-    "434.e74f424c.chunk.js.map": "/tribal-challenge-ts/static/js/434.e74f424c.chunk.js.map",
-    "524.c3f93e0b.chunk.css.map": "/tribal-challenge-ts/static/css/524.c3f93e0b.chunk.css.map",
-    "524.61ab4f00.chunk.js.map": "/tribal-challenge-ts/static/js/524.61ab4f00.chunk.js.map",
-    "986.9b84eb87.chunk.css.map": "/tribal-challenge-ts/static/css/986.9b84eb87.chunk.css.map",
-    "986.fc5158c7.chunk.js.map": "/tribal-challenge-ts/static/js/986.fc5158c7.chunk.js.map",
-    "987.4ff52861.chunk.js.map": "/tribal-challenge-ts/static/js/987.4ff52861.chunk.js.map",
-    "787.505ba2f2.chunk.js.map": "/tribal-challenge-ts/static/js/787.505ba2f2.chunk.js.map",
-    "720.10eb31e4.chunk.js.map": "/tribal-challenge-ts/static/js/720.10eb31e4.chunk.js.map",
-    "655.da9728a6.chunk.js.map": "/tribal-challenge-ts/static/js/655.da9728a6.chunk.js.map"
+    "main.css": "/static/css/main.b6a173f8.css",
+    "main.js": "/static/js/main.c891407a.js",
+    "static/js/987.4ff52861.chunk.js": "/static/js/987.4ff52861.chunk.js",
+    "static/js/787.505ba2f2.chunk.js": "/static/js/787.505ba2f2.chunk.js",
+    "static/media/logo.svg": "/static/media/logo.7c8163e4db466e321954d09b1a49313a.svg",
+    "index.html": "/index.html",
+    "static/media/getFetch.cjs": "/static/media/getFetch.c780682470504fffbd04.cjs",
+    "static/media/arrow.svg": "/static/media/arrow.deb4df55a4d66f94fc6ad62ac34e09f5.svg",
+    "main.b6a173f8.css.map": "/static/css/main.b6a173f8.css.map",
+    "main.c891407a.js.map": "/static/js/main.c891407a.js.map",
+    "987.4ff52861.chunk.js.map": "/static/js/987.4ff52861.chunk.js.map",
+    "787.505ba2f2.chunk.js.map": "/static/js/787.505ba2f2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c7aaffcb.css",
-    "static/js/main.82cc32d8.js"
+    "static/css/main.b6a173f8.css",
+    "static/js/main.c891407a.js"
   ]
 }
