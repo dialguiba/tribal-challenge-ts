@@ -1,5 +1,10 @@
 # Reto Tribal
 
+## Project Deployed:
+
+```
+https://challenge-tribal.web.app/
+```
 
 This project requires environment variables set for the api url and api key.
 In Local, the json package has a proxy configured to be able to use the api and not have cors problems. So the variables would be the following:
