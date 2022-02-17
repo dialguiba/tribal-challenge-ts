@@ -1,7 +1,7 @@
-import { LoadingSpinner } from "components/atoms/LoadingSpinner";
-import { CrudItem } from "components/molecules/CrudItem";
+import { LoadingSpinner } from "@components/atoms/LoadingSpinner";
+import { CrudItem } from "@components/molecules/CrudItem";
 import React from "react";
-import { Card } from "../Card";
+import { Card } from "@components/organisms/Card";
 import "./crud-list.scoped.scss";
 
 interface Props {

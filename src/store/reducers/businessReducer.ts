@@ -1,4 +1,4 @@
-import { types } from "store/types";
+import { types } from "@store/types";
 import { Action, BusinessEntity } from "types/store";
 
 const initialState = {

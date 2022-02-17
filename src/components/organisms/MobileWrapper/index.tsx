@@ -1,5 +1,5 @@
-import { Button } from "components/atoms/Button";
-import { useMobile } from "hooks/useMobile";
+import { Button } from "@components/atoms/Button";
+import { useMobile } from "@hooks/useMobile";
 import { ReactSVG } from "react-svg";
 import "./mobile-wrapper.scoped.scss";
 

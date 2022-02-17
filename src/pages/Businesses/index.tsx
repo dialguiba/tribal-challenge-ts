@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createbusiness, getBusinesses, startEditBusinessProcess, startDeleteBusinessProcess } from "store/actions/businessActions";
+import { createbusiness, getBusinesses, startEditBusinessProcess, startDeleteBusinessProcess } from "@store/actions/businessActions";
 
 import { SimpleCrud } from "templates/SimpleCrud";
 import { BusinessEntity, State } from "types/store";

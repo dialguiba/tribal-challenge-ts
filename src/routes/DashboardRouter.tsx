@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import { PrivateRoute } from "./PrivateRoute";
-import { PublicRoute } from "./PublicRoute";
-import { BusinessDirectoryRoutes } from "./BusinessDirectoryRoutes";
+import { PrivateRoute } from "@routes/PrivateRoute";
+import { PublicRoute } from "@routes/PublicRoute";
+import { BusinessDirectoryRoutes } from "@routes/BusinessDirectoryRoutes";
 
 export const DashboardRouter = () => {
   return (

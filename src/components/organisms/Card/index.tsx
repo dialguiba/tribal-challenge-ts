@@ -1,4 +1,4 @@
-import { CrudItem } from "components/molecules/CrudItem";
+import { CrudItem } from "@components/molecules/CrudItem";
 import React from "react";
 import "./card.scoped.scss";
 

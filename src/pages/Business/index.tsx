@@ -1,10 +1,10 @@
-import { MobileWrapper } from "components/organisms/MobileWrapper";
+import { MobileWrapper } from "@components/organisms/MobileWrapper";
 import { useLayoutEffect, useRef } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { setCurrentBusiness, startEditBusinessProcess, updateCurrentBusiness } from "store/actions/businessActions";
+import { setCurrentBusiness, startEditBusinessProcess, updateCurrentBusiness } from "@store/actions/businessActions";
 import {
   startCreatePersonProcess,
   startEditPersonProcess,

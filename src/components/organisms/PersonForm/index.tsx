@@ -1,13 +1,13 @@
-import { Button } from "components/atoms/Button";
-import { Input } from "components/atoms/Input";
+import { Button } from "@components/atoms/Button";
+import { Input } from "@components/atoms/Input";
 import { useFormik } from "formik";
-import { useMobile } from "hooks/useMobile";
+import { useMobile } from "@hooks/useMobile";
 import { PersonEntity } from "types/store";
 import * as Yup from "yup";
 import "./person-form.scoped.scss";
 import { useTranslation } from "react-i18next";
-import { personStaticData } from "../../../i18n/person";
-import { generalStaticData } from "../../../i18n/general";
+import { personStaticData } from "@i18n/person";
+import { generalStaticData } from "@i18n/general";
 
 interface Props {
   initialValues?: PersonEntity;

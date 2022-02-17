@@ -1,7 +1,7 @@
 import { List } from "@components/molecules/List";
-import { SidebarHeader } from "components/molecules/SidebarHeader";
+import { SidebarHeader } from "@components/molecules/SidebarHeader";
 import React from "react";
-import { ListItem } from "components/atoms/ListItem";
+import { ListItem } from "@components/atoms/ListItem";
 import "./sidebar.scoped.scss";
 
 interface Props {

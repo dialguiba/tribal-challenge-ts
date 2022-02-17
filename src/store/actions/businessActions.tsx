@@ -1,7 +1,7 @@
-import { DeleteModalContent } from "components/organisms/DeleteModalContent";
-import { BusinessForm } from "components/organisms/BusinessForm";
+import { DeleteModalContent } from "@components/organisms/DeleteModalContent";
+import { BusinessForm } from "@components/organisms/BusinessForm";
 import { apiInstance } from "services/axios";
-import { types } from "store/types";
+import { types } from "@store/types";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { MobileWrapper } from "components/organisms/MobileWrapper";

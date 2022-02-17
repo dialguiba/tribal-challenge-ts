@@ -1,11 +1,11 @@
-import { DeleteModalContent } from "components/organisms/DeleteModalContent";
-import { PersonForm } from "components/organisms/PersonForm";
+import { DeleteModalContent } from "@components/organisms/DeleteModalContent";
+import { PersonForm } from "@components/organisms/PersonForm";
 import { apiInstance } from "services/axios";
-import { types } from "store/types";
+import { types } from "@store/types";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { getBusiness } from "./businessActions";
-import { MobileWrapper } from "components/organisms/MobileWrapper";
+import { MobileWrapper } from "@components/organisms/MobileWrapper";
 import { PersonEntity } from "types/store";
 import { staticData } from "./data";
 import { t } from "i18next";

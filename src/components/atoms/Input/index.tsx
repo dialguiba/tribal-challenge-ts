@@ -1,5 +1,4 @@
 import { FormikValues } from "formik";
-import React from "react";
 import "./input.scoped.scss";
 
 interface Props {

@@ -1,11 +1,11 @@
-import { Button } from "components/atoms/Button";
-import { CrudList } from "components/organisms/CrudList";
-import { HeaderCrud } from "components/organisms/HeaderCrud";
+import { Button } from "@components/atoms/Button";
+import { CrudList } from "@components/organisms/CrudList";
+import { HeaderCrud } from "@components/organisms/HeaderCrud";
 import { useMobile } from "hooks/useMobile";
 import { ReactSVG } from "react-svg";
 import { Crud } from "templates/Crud";
 import "./complexCrud.scoped.scss";
-import { BusinessEntity, PersonEntity } from "../../types/store";
+import { BusinessEntity, PersonEntity } from "@typing/store";
 
 interface Props {
   title: string;

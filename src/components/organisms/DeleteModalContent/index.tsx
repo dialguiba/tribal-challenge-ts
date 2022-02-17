@@ -1,5 +1,4 @@
-import { Button } from "components/atoms/Button";
-import React from "react";
+import { Button } from "@components/atoms/Button";
 import "./delete-modal-content.scoped.scss";
 
 interface Props {

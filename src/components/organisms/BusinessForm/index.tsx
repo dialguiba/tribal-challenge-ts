@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./create-form.scoped.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -7,7 +7,7 @@ import { Input } from "@components/atoms/Input";
 import { useMobile } from "@hooks/useMobile";
 import { BusinessEntity } from "types/store";
 import { useTranslation } from "react-i18next";
-import { generalStaticData } from "../../../i18n/general";
+import { generalStaticData } from "@i18n/general";
 
 interface Props {
   initialValues?: BusinessEntity;

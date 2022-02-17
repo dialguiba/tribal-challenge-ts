@@ -15,7 +15,9 @@
       "@actions/*": ["./store/actions/*"],
       "@styles/*": ["./styles/*"],
       "@hooks/*": ["./hooks/*"],
-      "@i18n/*": ["./i18n/*"]
+      "@i18n/*": ["./i18n/*"],
+      "@typing/*": ["./types/*"],
+      "@routes/*": ["./routes/*"]
     }
   }
 }

@@ -1,7 +1,7 @@
 import { TFunction } from "i18next";
-import { businessStaticData } from "../../i18n/business";
-import { generalStaticData } from "../../i18n/general";
-import { personStaticData } from "../../i18n/person";
+import { businessStaticData } from "@i18n/business";
+import { generalStaticData } from "@i18n/general";
+import { personStaticData } from "@i18n/person";
 
 export const business = (t: TFunction) => {
   const businessTranslator = businessStaticData(t);

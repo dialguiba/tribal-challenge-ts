@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store";
-import { LoadingSpinner } from "./components/atoms/LoadingSpinner/index";
+import { LoadingSpinner } from "@components/atoms/LoadingSpinner";
 
 ReactDOM.render(
   <React.StrictMode>

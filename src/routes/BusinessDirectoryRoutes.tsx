@@ -1,10 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import { lazy } from "react";
-
-const Businesses = lazy(() => import("../pages/Businesses"));
-const Business = lazy(() => import("../pages/Business"));
-const NotFound = lazy(() => import("../pages/NotFound"));
+import Businesses from "@pages/Businesses";
+import Business from "@pages/Business";
+import NotFound from "@pages/NotFound";
 
 export const BusinessDirectoryRoutes = () => {
   return (

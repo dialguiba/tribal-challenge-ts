@@ -1,10 +1,9 @@
-/* import { DashboardRouter } from "@root/src/routes/DashboardRouter"; */
 import "./dashboard-scoped.scss";
-import { DashboardRouter } from "../../routes/DashboardRouter";
+import { DashboardRouter } from "@routes/DashboardRouter";
 import { useEffect, useState } from "react";
-import { Sidebar } from "components/organisms/Sidebar";
+import { Sidebar } from "@components/organisms/Sidebar";
 import { HashRouter } from "react-router-dom";
-import { useMobile } from "hooks/useMobile";
+import { useMobile } from "@hooks/useMobile";
 import { useTranslation } from "react-i18next";
 import { staticData } from "./data";
 
