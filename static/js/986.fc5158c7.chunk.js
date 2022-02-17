@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktribal_frontend_typescript=self.webpackChunktribal_frontend_typescript||[]).push([[986],{5986:function(n,t,s){s.r(t),s.d(t,{default:function(){return r}});s(2791);var e=s(3939),c=s(184),r=function(){return(0,c.jsx)("div",{className:"p-notFound","data-v-95fc8270":"",children:(0,c.jsx)(e.Q,{src:"/icons/404.svg",viewBox:"5 0 90 100",className:"p-notFound__svg","data-v-95fc8270":""})})}}}]);
+//# sourceMappingURL=986.fc5158c7.chunk.js.map
