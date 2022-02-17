@@ -11,13 +11,15 @@ interface Props {
   route?: string;
   iconFillColor?: string;
   iconStrokeColor?: string;
+  textHoverColor?: string;
 }
 
-export const ListItem = ({ text, icon, bold, textColor, route, iconFillColor = "", iconStrokeColor = "" }: Props) => {
+export const ListItem = ({ text, icon, bold, textColor, route, iconFillColor = "", iconStrokeColor = "", textHoverColor = "#000000" }: Props) => {
   /* const formattedHref = (text) => text.replace(/ /g, "-").toLowerCase(); */
   const liStyles = {
     "--iconFillColor": iconFillColor,
     "--iconStrokeColor": iconStrokeColor,
+    "--textHoverColor": textHoverColor,
   } as React.CSSProperties;
 
   const linkStyles = {
@@ -32,8 +34,8 @@ export const ListItem = ({ text, icon, bold, textColor, route, iconFillColor = "
   };
   return (
     <li className="a-listItem" style={liStyles}>
-      {icon && <ReactSVG src={`/icons/${icon}.svg`} className="a-listItem__icon" />}
       <Link className={textClasses()} to={`/${route}`} style={linkStyles}>
+        {icon && <ReactSVG src={`/icons/${icon}.svg`} className="a-listItem__icon" />}
         {text}
       </Link>
     </li>

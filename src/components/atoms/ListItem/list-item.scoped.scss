@@ -1,3 +1,5 @@
+@import "@styles/mixins/_colors.scss";
+
 .a-listItem {
   display: flex;
   /* border: solid; */
@@ -15,6 +17,7 @@
     margin-right: 1rem;
   }
   &__text {
+    display: flex;
     color: var(--textColor);
     text-decoration: none;
     font-size: 14px;
@@ -22,6 +25,10 @@
     font-weight: 400;
     &.--bold {
       font-weight: 700;
+    }
+
+    &:hover {
+      @include recolor(#263238, 1);
     }
   }
 }
