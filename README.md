@@ -4,7 +4,7 @@
 
 ## Demo
 
-https://challenge-tribal.web.app/
+https://tribal-challenge-ts.web.app/#/overview
 
 ## Tech Stack
 
