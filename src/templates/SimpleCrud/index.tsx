@@ -6,6 +6,7 @@ import { Button } from "components/atoms/Button";
 import { useMobile } from "hooks/useMobile";
 import { ReactSVG } from "react-svg";
 import { BusinessEntity } from "types/store";
+import { useEffect, useState } from "react";
 
 interface Props {
   handleCreate: () => void;
@@ -19,6 +20,14 @@ interface Props {
 
 export const SimpleCrud = ({ handleCreate, handleDelete, handleEditBusiness, businesses, isLoading, handleRefresh, staticData }: Props) => {
   const [isMobile] = useMobile();
+  const [animate, setAnimate] = useState(false);
+  const onClickRefresh = () => {
+    setAnimate(true);
+    handleRefresh();
+  };
+  useEffect(() => {
+    if (!isLoading) setAnimate(false);
+  }, [isLoading]);
   return (
     <div className={isMobile ? "t-simpleCrud --mobile" : "t-simpleCrud"}>
       <Crud>
@@ -27,7 +36,14 @@ export const SimpleCrud = ({ handleCreate, handleDelete, handleEditBusiness, bus
           title={staticData.businesses.title}
           actions={
             <>
-              {!isMobile && <ReactSVG src="/icons/refresh.svg" style={{ cursor: "pointer" }} onClick={handleRefresh} />}
+              {!isMobile && (
+                <ReactSVG
+                  src="/icons/refresh.svg"
+                  style={{ cursor: "pointer" }}
+                  onClick={onClickRefresh}
+                  className={animate ? "animate__animated animate__rotateIn" : ""}
+                />
+              )}
               {!isMobile && <Button onClick={() => handleCreate()}>{staticData.businesses.actions.create}</Button>}
             </>
           }

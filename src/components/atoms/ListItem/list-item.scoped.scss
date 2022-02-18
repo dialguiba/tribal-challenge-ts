@@ -26,8 +26,11 @@
     &.--bold {
       font-weight: 700;
     }
+    &.--active {
+      @include recolor(#92e3a9, 1);
+    }
 
-    &:hover {
+    &:hover:not(.--active) {
       @include recolor(#263238, 1);
     }
   }

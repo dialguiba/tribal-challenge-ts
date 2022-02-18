@@ -58,13 +58,13 @@ export const CrudItem = ({
           {withActions && (
             <div className="m-crudItem__buttonsContainer">
               {canEdit && (
-                <button onClick={(e) => handleEdit(item, e)} className="m-crudItem__buttonsContainer__icon">
-                  <ReactSVG src={`/icons/${editIconName}.svg`} />
+                <button onClick={(e) => handleEdit(item, e)} className="m-crudItem__buttonsContainer__button ">
+                  <ReactSVG src={`/icons/${editIconName}.svg`} className="m-crudItem__buttonsContainer__button__icon --edit" />
                 </button>
               )}
               {canDelete && (
-                <button onClick={(e) => handleDelete(item, e)} className="m-crudItem__buttonsContainer__icon">
-                  <ReactSVG src={`/icons/trash.svg`} />
+                <button onClick={(e) => handleDelete(item, e)} className="m-crudItem__buttonsContainer__button">
+                  <ReactSVG src={`/icons/trash.svg`} className="m-crudItem__buttonsContainer__button__icon --delete" />
                 </button>
               )}
             </div>

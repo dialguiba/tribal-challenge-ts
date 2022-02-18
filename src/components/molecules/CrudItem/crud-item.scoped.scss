@@ -1,3 +1,5 @@
+@import "@styles/mixins/_colors.scss";
+
 .m-crudItem {
   display: flex;
   justify-content: space-between;
@@ -34,14 +36,26 @@
 
   &__buttonsContainer {
     display: flex;
-    &__icon {
+    &__button {
       z-index: 10;
       border-style: none;
       background: transparent;
       cursor: pointer;
 
       &:hover {
-        background: #f5f5f5;
+        background: transparent;
+      }
+
+      &__icon {
+        &:hover {
+          &.--edit {
+            @include recolor(rgb(179, 179, 28), 1);
+          }
+
+          &.--delete {
+            @include recolor(red, 1);
+          }
+        }
       }
     }
   }

@@ -6,6 +6,7 @@ import { ReactSVG } from "react-svg";
 import { Crud } from "templates/Crud";
 import "./complexCrud.scoped.scss";
 import { BusinessEntity, PersonEntity } from "@typing/store";
+import { useState, useEffect } from "react";
 
 interface Props {
   title: string;
@@ -40,6 +41,17 @@ export const ComplexCrud = ({
     currentView === 0 ? handleUpdateView(1) : handleUpdateView(0);
   };
 
+  const [animate, setAnimate] = useState(false);
+
+  const onClickRefresh = () => {
+    setAnimate(true);
+    handleRefresh();
+  };
+
+  useEffect(() => {
+    if (!isLoading) setAnimate(false);
+  }, [isLoading]);
+
   return (
     <div className={isMobile ? "t-complexCrud --mobile" : "t-complexCrud"}>
       <Crud>
@@ -48,7 +60,14 @@ export const ComplexCrud = ({
           title={title}
           actions={
             <>
-              {!isMobile && <ReactSVG src="/icons/refresh.svg" style={{ cursor: "pointer" }} onClick={handleRefresh} />}
+              {!isMobile && (
+                <ReactSVG
+                  src="/icons/refresh.svg"
+                  style={{ cursor: "pointer" }}
+                  onClick={onClickRefresh}
+                  className={animate ? "animate__animated animate__rotateIn" : ""}
+                />
+              )}
               {isMobile && <ReactSVG src="/icons/pen2.svg" onClick={() => handleEditBusiness()} />}
               {!isMobile && (
                 <ReactSVG src={`${currentView === 0 ? "/icons/squares.svg" : "/icons/list.svg"}`} onClick={changeView} style={{ cursor: "pointer" }} />
