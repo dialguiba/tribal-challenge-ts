@@ -35,18 +35,18 @@ export const ListItem = ({ text, icon, bold, textColor, route, iconFillColor = "
     return classes;
   };
   return (
-    <li className="a-listItem" style={liStyles}>
-      <ConditionalWrapper
-        condition={!!route}
-        wrapper={(children) => (
-          <NavLink className={(state) => textClasses(state.isActive)} to={`/${route}`} style={linkStyles}>
-            {children}
-          </NavLink>
-        )}
-      >
+    <ConditionalWrapper
+      condition={!!route}
+      wrapper={(children) => (
+        <NavLink className={(state) => textClasses(state.isActive)} to={`/${route}`} style={linkStyles}>
+          {children}
+        </NavLink>
+      )}
+    >
+      <li className="a-listItem" style={liStyles}>
         {icon && <ReactSVG src={`/icons/${icon}.svg`} className="a-listItem__icon" />}
         {text}
-      </ConditionalWrapper>
-    </li>
+      </li>
+    </ConditionalWrapper>
   );
 };

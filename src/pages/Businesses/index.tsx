@@ -29,17 +29,17 @@ const Businesses = () => {
   const handleCreate = () => dispatch(createbusiness());
   const handleRefresh = () => dispatch(getBusinesses());
 
-  return (
-    <SimpleCrud
-      isLoading={isBusinessesLoading}
-      handleCreate={handleCreate}
-      handleDelete={handleDelete}
-      handleEditBusiness={handleEdit}
-      businesses={businesses}
-      handleRefresh={handleRefresh}
-      staticData={staticData(t)}
-    />
-  );
+  const simpleCrudProps = {
+    isLoading: isBusinessesLoading,
+    handleCreate,
+    handleDelete,
+    handleEditBusiness: handleEdit,
+    businesses,
+    handleRefresh,
+    staticData: staticData(t),
+  };
+
+  return <SimpleCrud {...simpleCrudProps} />;
 };
 
 export default Businesses;

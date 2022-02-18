@@ -28,8 +28,18 @@ export const SimpleCrud = ({ handleCreate, handleDelete, handleEditBusiness, bus
   useEffect(() => {
     if (!isLoading) setAnimate(false);
   }, [isLoading]);
+
+  const crudListProps = {
+    data: businesses,
+    handleEdit: handleEditBusiness,
+    handleDelete,
+    withLink: true,
+    isLoading,
+    withActions: !isMobile,
+  };
+
   return (
-    <div className={isMobile ? "t-simpleCrud --mobile" : "t-simpleCrud"}>
+    <section className={isMobile ? "t-simpleCrud --mobile" : "t-simpleCrud"}>
       <Crud>
         <HeaderCrud
           responsive
@@ -49,7 +59,7 @@ export const SimpleCrud = ({ handleCreate, handleDelete, handleEditBusiness, bus
           }
         />
 
-        <CrudList data={businesses} handleEdit={handleEditBusiness} handleDelete={handleDelete} withLink isLoading={isLoading} withActions={!isMobile} />
+        <CrudList {...crudListProps} />
 
         {isMobile && (
           <div className="t-simpleCrud__button">
@@ -57,6 +67,6 @@ export const SimpleCrud = ({ handleCreate, handleDelete, handleEditBusiness, bus
           </div>
         )}
       </Crud>
-    </div>
+    </section>
   );
 };

@@ -53,7 +53,7 @@ export const ComplexCrud = ({
   }, [isLoading]);
 
   return (
-    <div className={isMobile ? "t-complexCrud --mobile" : "t-complexCrud"}>
+    <section className={isMobile ? "t-complexCrud --mobile" : "t-complexCrud"}>
       <Crud>
         <HeaderCrud
           responsive
@@ -102,6 +102,6 @@ export const ComplexCrud = ({
           </div>
         )}
       </Crud>
-    </div>
+    </section>
   );
 };

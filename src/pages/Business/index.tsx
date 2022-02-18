@@ -62,21 +62,23 @@ const Business = () => {
   const handleEditBusiness = (business?: BusinessEntity) => dispatch(startEditBusinessProcess(business));
   const handleRefresh = () => dispatch(updateCurrentPersons(currentBusinesId));
 
+  const complexCrudProps = {
+    title: name,
+    persons,
+    handleUpdateView,
+    currentView,
+    handleCreate,
+    handleDelete,
+    handleEditBusiness,
+    isLoading: isBusinessLoading || isPersonsLoading,
+    handleEditPerson,
+    handleRefresh,
+    staticData: staticData(t),
+  };
+
   return (
     <MobileWrapper onButtonClick={() => navigate("/overview")} goBackText={staticData(t).business.actions.back}>
-      <ComplexCrud
-        title={name}
-        persons={persons}
-        handleUpdateView={handleUpdateView}
-        currentView={currentView}
-        handleCreate={handleCreate}
-        handleDelete={handleDelete}
-        handleEditBusiness={handleEditBusiness}
-        isLoading={isBusinessLoading || isPersonsLoading}
-        handleEditPerson={handleEditPerson}
-        handleRefresh={handleRefresh}
-        staticData={staticData(t)}
-      />
+      <ComplexCrud {...complexCrudProps} />
     </MobileWrapper>
   );
 };
