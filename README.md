@@ -4,7 +4,10 @@
 
 ## Demo
 
-https://tribal-challenge-ts.web.app/#/overview
+Click Here: 
+<a href="https://tribal-challenge-ts.web.app/#/overview" target="_blank">Tribal Challenge TS</a>
+
+
 
 ## Tech Stack
 
