@@ -20,8 +20,9 @@ export const updateCurrentPersons = (businessId: string) => {
       business = await dispatch(getBusiness(businessId));
     }
     const persons = await dispatch(getPersons(businessId));
+    const sortedPersons = persons.sort((a: Record<string, string>, b: Record<string, string>) => a.name.localeCompare(b.name));
 
-    dispatch(setCurrentPersons(persons));
+    dispatch(setCurrentPersons(sortedPersons));
     dispatch(updateLoadingPersons(false));
   };
 };
@@ -92,7 +93,6 @@ export const startDeletePersonProcess = (person: PersonEntity) => {
         });
 
       if ((await result()).isConfirmed) {
-        console.log(getState);
         const currentBusinessId = getState().businesses.currentBusiness.id;
         console.log(currentBusinessId);
         await apiInstance(`/business/${currentBusinessId}/persons/${person.id}`, {
@@ -101,7 +101,15 @@ export const startDeletePersonProcess = (person: PersonEntity) => {
             "Content-Type": "application/json",
           },
         });
-        Swal.fire(staticData(t).general.deleted, staticData(t).persons.deleted, "success");
+        Swal.fire({
+          title: staticData(t).general.deleted,
+          html: staticData(t).persons.deleted,
+          icon: "success",
+          target: ".App",
+          customClass: { popup: "--responsiveResponse" },
+          showConfirmButton: false,
+        });
+
         dispatch(removePerson(person.id));
       }
     } catch (e) {
@@ -181,7 +189,6 @@ export const startEditPersonProcess = (person: PersonEntity) => {
         text: "error",
         showConfirmButton: true,
         target: ".App",
-        timer: 1500,
         customClass: { popup: "--responsiveResponse" },
       });
     }
@@ -243,6 +250,7 @@ export const startCreatePersonProcess = () => {
         icon: "success",
         title: staticData(t).persons.created,
         timer: 1500,
+        showConfirmButton: false,
         target: ".App",
         customClass: { popup: "--responsiveResponse" },
       });
@@ -252,7 +260,6 @@ export const startCreatePersonProcess = () => {
         title: "Error",
         text: "error",
         showConfirmButton: true,
-        timer: 1500,
         target: ".App",
         customClass: { popup: "--responsiveResponse" },
       });

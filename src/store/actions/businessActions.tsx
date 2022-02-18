@@ -23,8 +23,8 @@ export const getBusinesses = (withLoading = true) => {
         delete business.businessId;
         return { id, ...business };
       });
-
-      dispatch(loadBusinesses(businessFormatted));
+      const sorted = businessFormatted.sort((a: Record<string, string>, b: Record<string, string>) => a.name.localeCompare(b.name));
+      dispatch(loadBusinesses(sorted));
       withLoading && dispatch(updateLoadingBusinesses(false));
     } catch (e) {
       dispatch(updateWithErrorBusinesses(true));
@@ -115,7 +115,7 @@ export const createbusiness = () => {
         icon: "error",
         title: "Error",
         text: "error",
-        showConfirmButton: true,
+        showConfirmButton: false,
         timer: 1500,
         target: ".App",
         customClass: { popup: "--responsiveResponse" },
@@ -256,7 +256,15 @@ export const startDeleteBusinessProcess = (business: BusinessEntity) => {
             "Content-Type": "application/json",
           },
         });
-        Swal.fire(staticData(t).business.deleted, staticData(t).business.businessDeleted, "success");
+        Swal.fire({
+          title: staticData(t).business.deleted,
+          html: staticData(t).business.businessDeleted,
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500,
+          target: ".App",
+          customClass: { popup: "--responsiveResponse" },
+        });
         dispatch(removeBusiness(businessId));
         if (currentBusinessId) {
           dispatch(setCurrentBusiness({} as BusinessEntity));

@@ -19,7 +19,9 @@ export const businessReducer = (state = initialState, action: Action) => {
     case types.updateBusiness:
       return {
         ...state,
-        data: [...state.data.filter((business: BusinessEntity) => business.id !== action.payload.id), action.payload],
+        data: [...state.data.filter((business: BusinessEntity) => business.id !== action.payload.id), action.payload].sort(
+          (a: Record<string, string>, b: Record<string, string>) => a.name.localeCompare(b.name)
+        ),
       };
 
     case types.updateLoadingBusinesses:

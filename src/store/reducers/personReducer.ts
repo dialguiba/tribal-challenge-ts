@@ -30,7 +30,9 @@ export const personReducer = (state = initialState, action: Action) => {
     case types.updatePerson:
       return {
         ...state,
-        currentPersons: [...state.currentPersons.filter((person: PersonEntity) => person.id !== action.payload.id), action.payload],
+        currentPersons: [...state.currentPersons.filter((person: PersonEntity) => person.id !== action.payload.id), action.payload].sort(
+          (a: Record<string, string>, b: Record<string, string>) => a.name.localeCompare(b.name)
+        ),
       };
 
     case types.addPerson:
