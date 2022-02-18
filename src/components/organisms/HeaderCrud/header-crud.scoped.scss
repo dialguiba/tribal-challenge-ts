@@ -2,7 +2,6 @@
   align-self: flex-end;
 
   &.--mobile {
-    /* border: solid red; */
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +10,7 @@
     padding: 3.8rem 2rem 0 2rem;
     background: white;
   }
-  /* padding: 1.5rem 0 0 0; */
+
   &__principal {
     width: 100%;
     display: inline-flex;
@@ -23,18 +22,10 @@
     font-weight: bold;
     font-size: 30px;
     line-height: 40px;
+    cursor: default;
 
     &.--mobile {
       margin: 0;
-      /* padding: 0; */
-      /* border: solid red; */
-      /* position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      
-      padding: 1.5rem 2rem;
-      background: white; */
     }
   }
   &__actions {

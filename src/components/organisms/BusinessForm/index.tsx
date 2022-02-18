@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Button } from "@components/atoms/Button";
 import { Input } from "@components/atoms/Input";
-import { useMobile } from "@hooks/useMobile";
+import { useMobile } from "hooks/useMobile";
 import { BusinessEntity } from "types/store";
 import { useTranslation } from "react-i18next";
 import { generalStaticData } from "@i18n/general";
@@ -33,7 +33,7 @@ export const BusinessForm = ({
   initialValues = defaultInitialValues,
   title,
   onCancel,
-  submitButtonText,
+  submitButtonText = "Save",
   onSubmit,
   canDeleteInMobile = false,
   onDelete,

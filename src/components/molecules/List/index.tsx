@@ -1,12 +1,11 @@
 import "./list.scoped.scss";
 
 interface Props {
-  data?: any;
   vertical?: boolean;
   children?: any;
 }
 
-export const List = ({ data, vertical, children }: Props) => {
+export const List = ({ vertical, children }: Props) => {
   const ulClasses = () => {
     let classList = ["m-list"];
     vertical && classList.push("--vertical");

@@ -32,6 +32,10 @@ module.exports = {
 
     config.resolve.alias["@styles"] = path.resolve(__dirname, "../src/styles");
 
+    config.resolve.alias["@i18n"] = path.resolve(__dirname, "../src/i18n");
+
+    config.resolve.alias["@hooks"] = path.resolve(__dirname, "../src/hooks");
+
     return config;
   },
 };

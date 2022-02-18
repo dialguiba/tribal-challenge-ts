@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 import "./crud-item.scoped.scss";
+import { ConditionalWrapper } from "../../atoms/ConditionalWrapper/index";
 
 interface Props {
   name?: string;
@@ -17,14 +18,6 @@ interface Props {
   canDelete?: boolean;
   editIconName?: string;
 }
-
-interface ConditionalProps {
-  condition: boolean;
-  wrapper: (children: any) => any;
-  children: any;
-}
-
-const ConditionalWrapper = ({ condition, wrapper, children }: ConditionalProps) => (condition ? wrapper(children) : children);
 
 export const CrudItem = ({
   name,

@@ -10,18 +10,7 @@ interface Props {
 }
 
 export const HeaderCrud = ({ title, children, responsive, actions }: Props) => {
-  // 0 -> Lines
-  // 1 -> Gallery
-
   const [isMobile] = useMobile();
-
-  /* const gallery = {
-    0: "/icons/squares.svg",
-    1: "/icons/list.svg",
-  };
-  const changeView = () => {
-    currentView === 0 ? handleUpdateView(1) : handleUpdateView(0);
-  }; */
 
   return (
     <div className={isMobile && responsive ? "o-headerCrud --mobile" : "o-headerCrud"}>

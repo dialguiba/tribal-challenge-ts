@@ -2,6 +2,7 @@ import React from "react";
 import { ReactSVG } from "react-svg";
 import "./list-item.scoped.scss";
 import { Link } from "react-router-dom";
+import { ConditionalWrapper } from "../ConditionalWrapper";
 
 interface Props {
   text?: string;
@@ -34,10 +35,17 @@ export const ListItem = ({ text, icon, bold, textColor, route, iconFillColor = "
   };
   return (
     <li className="a-listItem" style={liStyles}>
-      <Link className={textClasses()} to={`/${route}`} style={linkStyles}>
+      <ConditionalWrapper
+        condition={!!route}
+        wrapper={(children) => (
+          <Link className={textClasses()} to={`/${route}`} style={linkStyles}>
+            {children}
+          </Link>
+        )}
+      >
         {icon && <ReactSVG src={`/icons/${icon}.svg`} className="a-listItem__icon" />}
         {text}
-      </Link>
+      </ConditionalWrapper>
     </li>
   );
 };
